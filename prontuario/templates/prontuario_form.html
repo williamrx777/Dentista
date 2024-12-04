@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if form.instance.pk %}Editar{% else %}Novo{% endif %} Prontuário{% endblock %}
+
+{% block content %}
+<h1>{% if form.instance.pk %}Editar{% else %}Novo{% endif %} Prontuário</h1>
+
+<form method="post" class="needs-validation" novalidate>
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="id_nome">Nome</label>
+            {{ form.nome }}
+        </div>
+        <div class="form-group col-md-6">
+            <label for="id_data_nascimento">Data de Nascimento</label>
+            {{ form.data_nascimento }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="id_telefone">Telefone</label>
+            {{ form.telefone }}
+        </div>
+        <div class="form-group col-md-6">
+            <label for="id_cpf">CPF</label>
+            {{ form.cpf }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="id_endereco">Endereço</label>
+        {{ form.endereco }}
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="id_profissao">Profissão</label>
+            {{ form.profissao }}
+        </div>
+        <div class="form-group col-md-6">
+            <label for="id_indicado_por">Indicado por</label>
+            {{ form.indicado_por }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="id_estado_civil">Estado Civil</label>
+            {{ form.estado_civil }}
+        </div>
+        <div class="form-group col-md-4">
+            <label for="id_inicio_tratamento">Início Tratamento</label>
+            {{ form.inicio_tratamento }}
+        </div>
+        <div class="form-group col-md-4">
+            <label for="id_termino_tratamento">Término Tratamento</label>
+            {{ form.termino_tratamento }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="id_interrupcao">Interrupção</label>
+        {{ form.interrupcao }}
+    </div>
+    <div class="form-group">
+        <label for="id_anotacoes">Anotações</label>
+        {{ form.anotações }}
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="id_tc">TC (Data)</label>
+            {{ form.tc }}
+        </div>
+        <div class="form-group col-md-6">
+            <label for="id_ts">TS (Data)</label>
+            {{ form.ts }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="id_pa_max">PA MAX</label>
+            {{ form.pa_max }}
+        </div>
+        <div class="form-group col-md-6">
+            <label for="id_pa_min">PA MIN</label>
+            {{ form.pa_min }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="id_sensibilidade_anestesia">Sensibilidade à Anestesia</label>
+            {{ form.sensibilidade_anestisia }}
+        </div>
+        <div class="form-group col-md-6">
+            <label for="id_sensibilidade_antibiotico">Sensibilidade a Antibiótico</label>
+            {{ form.sensibilidade_antibiotico }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="id_data">Data</label>
+            {{ form.data }}
+        </div>
+        <div class="form-group col-md-6">
+            <label for="id_dente">Dente</label>
+            {{ form.dente }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="id_tratamento_realizado">Tratamento Realizado</label>
+        {{ form.tratamento_realidado }}
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+            <label for="id_tempo">Tempo</label>
+            {{ form.tempo }}
+        </div>
+        <div class="form-group col-md-4">
+            <label for="id_debito">Débito</label>
+            {{ form.debito }}
+        </div>
+        <div class="form-group col-md-4">
+            <label for="id_credito">Crédito</label>
+            {{ form.credito }}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="id_saldo">Saldo</label>
+        {{ form.saldo }}
+    </div>
+    <!-- Botões de ação -->
+    <button type="submit" class="btn btn-success">Salvar</button>
+    <a href="{% url 'prontuario_list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+
+<script>
+// JavaScript para validação do formulário
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    var forms = document.getElementsByClassName('needs-validation');
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>
+
+{% endblock %}

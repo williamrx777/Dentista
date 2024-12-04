@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Lista de Prontuários{% endblock %}
+
+{% block content %}
+<h1>Lista de Prontuários</h1>
+<a href="{% url 'prontuario_create' %}" class="btn btn-primary mb-3">Novo Prontuário</a>
+<a href="{% url 'sair' %}" class="btn btn-danger mb-3">Sair</a>
+<table class="table table-striped">
+    <form action="{% url 'prontuario_list' %}" method="get">
+        <input type="text" name="nome" placeholder="Buscar por  nome..." class="form-control-plaintext">
+    </form>
+    <form action="{% url 'prontuario_list' %}" method="get">
+        <input type="text" name="cpf" placeholder="Buscar por cpf..." class="form-control-plaintext">
+    </form>
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pront in prontuarios %}
+        <tr>
+            <td>{{ pront.nome }}</td>
+            <td>{{ pront.cpf }}</td>
+            <td>
+                <a href="{% url 'prontuario_detail' pront.pk %}" class="btn btn-info btn-sm">Detalhes</a>
+                <a href="{% url 'prontuario_update' pront.pk %}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{% url 'prontuario_delete' pront.pk %}" class="btn btn-danger btn-sm">Deletar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

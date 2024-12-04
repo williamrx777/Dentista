@@ -1,0 +1,101 @@
+
+<h1>Detalhes do Prontuário</h1>
+<table class="table table-bordered">
+    <tr>
+        <th>Nome</th>
+        <td>{{ prontuario.nome }}</td>
+    </tr>
+    <tr>
+        <th>CPF</th>
+        <td>{{ prontuario.cpf }}</td>
+    </tr>
+    <tr>
+        <th>Data de Nascimento</th>
+        <td>{{ prontuario.data_nascimento }}</td>
+    </tr>
+    <tr>
+        <th>Telefone</th>
+        <td>{{ prontuario.telefone }}</td>
+    </tr>
+    <tr>
+        <th>Endereço</th>
+        <td>{{ prontuario.endereco }}</td>
+    </tr>
+    <tr>
+        <th>Profissão</th>
+        <td>{{ prontuario.profissao }}</td>
+    </tr>
+    <tr>
+        <th>Indicado por</th>
+        <td>{{ prontuario.indicado_por }}</td>
+    </tr>
+    <tr>
+        <th>Estado Civil</th>
+        <td>{{ prontuario.estado_civil }}</td>
+    </tr>
+    <tr>
+        <th>Início Tratamento</th>
+        <td>{{ prontuario.inicio_tratamento }}</td>
+    </tr>
+    <tr>
+        <th>Término Tratamento</th>
+        <td>{{ prontuario.termino_tratamento }}</td>
+    </tr>
+    <tr>
+        <th>Interrupção</th>
+        <td>{{ prontuario.interrupcao }}</td>
+    </tr>
+    <tr>
+        <th>Anotações</th>
+        <td>{{ prontuario.anotações }}</td>
+    </tr>
+    <tr>
+        <th>PA Máximo</th>
+        <td>{{ prontuario.pa_max }}</td>
+    </tr>
+    <tr>
+        <th>PA Mínimo</th>
+        <td>{{ prontuario.pa_min }}</td>
+    </tr>
+    <tr>
+        <th>Sensibilidade à Anestesia</th>
+        <td>{{ prontuario.sensibilidade_anestisia }}</td>
+    </tr>
+    <tr>
+        <th>Sensibilidade a Antibióticos</th>
+        <td>{{ prontuario.sensibilidade_antibiotico }}</td>
+    </tr>
+    <tr>
+        <th>Data</th>
+        <td>{{ prontuario.data }}</td>
+    </tr>
+    <tr>
+        <th>Dente</th>
+        <td>{{ prontuario.dente }}</td>
+    </tr>
+    <tr>
+        <th>Tratamento Realizado</th>
+        <td>{{ prontuario.tratamento_realidado }}</td>
+    </tr>
+    <tr>
+        <th>Tempo</th>
+        <td>{{ prontuario.tempo }}</td>
+    </tr>
+    <tr>
+        <th>Débito</th>
+        <td>{{ prontuario.debito }}</td>
+    </tr>
+    <tr>
+        <th>Crédito</th>
+        <td>{{ prontuario.credito }}</td>
+    </tr>
+    <tr>
+        <th>Saldo</th>
+        <td>{{ prontuario.saldo }}</td>
+    </tr>
+</table>
+
+<div>
+    <a href="{% url 'prontuario_update' prontuario.pk %}" class="btn btn-primary">Editar</a>
+    <a href="{% url 'prontuario_list' %}" class="btn btn-secondary">Voltar à Lista</a>
+</div>
